@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff4d6d,#ff758f);
+    font-family:'Arial',sans-serif;
+}
+
+.container{
+    text-align:center;
+    color:white;
+    z-index:2;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.message{
+    font-size:1.5rem;
+    margin-bottom:20px;
+}
+
+.heart{
+    font-size:100px;
+    animation:beat 1s infinite;
+}
+
+.signature{
+    position:fixed;
+    bottom:20px;
+    width:100%;
+    text-align:center;
+    color:white;
+    font-size:22px;
+    font-style:italic;
+}
+
+.floating-heart{
+    position:absolute;
+    color:white;
+    animation:float 8s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>This is for You ❤️</h1>
+    <div class="message">
+        Will You Be Mine Forever? 💍✨
+    </div>
+    <div class="heart">❤️</div>
+</div>
+
+<div class="signature">
+    — Ruslim ❤️
+</div>
+
+<script>
+function createHeart(){
+    const heart=document.createElement('div');
+    heart.classList.add('floating-heart');
+    heart.innerHTML='❤️';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.fontSize=(20+Math.random()*30)+'px';
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
